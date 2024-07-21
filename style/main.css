@@ -211,17 +211,54 @@ select{
 }
 .skeleton__item,
 .card{
-    width: 300px;
+    width: 350px;
     padding: 20px;
-    border: 1px solid #0b0b0b;
+    /* border: 1px solid #0b0b0b; */
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
+.desck {
+    font-size: 16px;
+    color: #0009;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .collection {
+    display: flex;
+    list-style: none;
+    overflow: auto;
+    padding: 10px 50px;
+    gap: 20px;
+    cursor: pointer;
+    /* font-size: 19px; */
+  }
+  .collection li{
+    width: 200px;
+    padding: 7px;
+    border: 1px solid #0002;
+    border-radius: 6px;
+  }
+  .item{
+    white-space: nowrap;
+    transition: .3s;
+  }
+  .item:hover{
+    color: dodgerblue;
+    transform: scale(1.1);
+  }
 .card img{
     width: 100%;
     height: 250px;
     object-fit: contain;
+    transition: .3s;
+    cursor: pointer;
+}
+.card img:hover{
+    transform: scale(1.1);
 }
 .skeleton__image{
     width: 100%;
@@ -251,7 +288,18 @@ select{
         background-position: 200%;
     }
 }
-.price__title button{
+.card button{
+    transition: .3s;
+    width: 200px;
+    height: 38px;
+    background: dodgerblue;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 600;
+}
+.seemore{
+    margin-left: 33%;
     background: dodgerblue;
     border: none;
     border-radius: 7px;

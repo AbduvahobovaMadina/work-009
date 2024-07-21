@@ -2,6 +2,7 @@ const API__URL = "https://dummyjson.com"
 const skeleton = document.querySelector(".skeleton")
 const wrapper = document.querySelector(".wrapper")
 const seemore = document.querySelector(".seemore");
+const collection = document.querySelector(".collection");
 
 
 
@@ -26,7 +27,7 @@ async function fetchData(api,limit, category){
     let reponse = await fetch(`${api}/products${category}?limit=${limit}`);
     reponse
         .json()
-        .then(res => console.log(res))
+        .then(res => createCard(res))
         .catch(err => console.log(err))
         .finally(() => {
             skeleton.style.display = "none";
@@ -48,7 +49,6 @@ function createCard(data) {
         <img src=${product.images[0]} alt="">
         <h3>${product.title}</h3>
         <p class= "desck" title ="${product.description}">${product.description}</p>
-            
         <button>Buy now</button>
         `;
     wrapper.appendChild(cardItem);
@@ -62,10 +62,14 @@ seemore.addEventListener("click", () => {
   });
   async function fetchCategory(api) {
     let response = await fetch(`${api}/products/category-list`);
-    response.json().then((res) => createCategory(res));
+    response
+        .json()
+        .then((res) => createCategory(res));
   }
+  fetchCategory(API__URL);
 
-function createCategory(data) {
+
+  function createCategory(data) {
     data.forEach((category) => {
       let list = document.createElement("li");
       list.className = "item";
@@ -75,5 +79,11 @@ function createCategory(data) {
       collection.appendChild(list);
     });
   }
-
+  collection.addEventListener("click", (e) => {
+    if (e.target.tagName === "DATA") {
+      let val = e.target.value;
+      let category = val;
+      fetchData(API__URL, perPageCount * offset, category);
+    }
+  });
 
