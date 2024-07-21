@@ -197,104 +197,59 @@ select{
 }
 
 
-
-
-
-.price__menu{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
 .price__title{
-    text-align: center;
-    margin-top: 135px;
-    width: 100%;
+    margin-top: 80px;
+}
+
+
+.skeleton,
+.wrapper{
+    padding: 50px;
     display: flex;
-    flex-direction: column;
     gap: 20px;
-    align-items: center;
+    flex-wrap: wrap;
 }
-.price__title h4{
-    font-size: 16px;
-    font-weight: 500;
-    color: dodgerblue;
-    cursor: pointer;
-}
-.price__title h2{
-    font-size: 36px;
-    font-weight: 1000;
-}
-.menu__card{
-    width: 334px;
-    height: 440px;
+.skeleton__item,
+.card{
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #0b0b0b;
     display: flex;
     flex-direction: column;
-    transition: .5s;
-    border-radius: 20px;
-    overflow: hidden;
-}
-.card__pic{
-    margin: 15px 0 0 15px;
-}
-.card__icon{
-    display: flex;
-    flex-direction: column;
-    width: 38px;
-    height: 38px;
-    position: relative;
-    right: 70px;
-    top: -150px;
-    transition: 1s;
-}
-.card__icon img:active{
-    transform:  scale(.9);
-    box-shadow: 0 0 10px gray;
-}
-.card__img:hover{
-    cursor: pointer;
-    .card__icon{
-      top: 0;
-    }
-}
-.card__icon img{
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.card__img{
-    background: rgba(246, 246, 246, 1);
-    width: 400px;
-    height: 437px;
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-    transition: 1s;
-}
-
-.card__img img{
-    margin: 10px;
-}
-.menu__card h2{
-    font-size: 24px;
-    font-weight: 600;
-}
-.price{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     gap: 10px;
-    margin-top: 20px;
 }
-.price del{
-    color: rgba(139, 142, 153, 1);
-    font-size: 16px;
+.card img{
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
 }
-.price p{
-    font-size: 20px;
+.skeleton__image{
+    width: 100%;
+    height: 250px;
+    background: #ddd;
+    border-radius: 14px;
+}
+.skeleton__line{
+    width: 100%;
+    height: 30px;
+    background: #ddd;
+    border-radius: 6px;
+}
+.skeleton__line:nth-child(3){
+    width: 80%;
+}
+.skeleton__line:nth-child(4){
+    width: 60%;
+}
+.skeleton__anime{
+    background: linear-gradient(90deg,#ddd,#f7f7f7,#ddd);
+    background-size: 200%;
+    animation: skeleton .7s linear 0s infinite;
+}
+@keyframes skeleton {
+    to{
+        background-position: 200%;
+    }
 }
 .price__title button{
     background: dodgerblue;
